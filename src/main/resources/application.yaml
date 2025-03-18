@@ -1,0 +1,22 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:postresql://localhost:5432/booksdb
+    username: bookuser
+    password: pgbooks1
+    driverClassName: org.postgresql.Driver
+
+server:
+  port: 8081
+
+#security:
+#  basic:
+#    enabled: true
+#    realm: some-service
+#  user:
+#    name: example_user
+#    password: example_password

@@ -31,8 +31,7 @@ public class ColorController {
     }
 
     @PostMapping("/create")
-    public ColorResponse create(@RequestBody ColorRequest request)
-    {
+    public ColorResponse create(@RequestBody ColorRequest request) throws Exception {
         return service.create(request);
     }
 }

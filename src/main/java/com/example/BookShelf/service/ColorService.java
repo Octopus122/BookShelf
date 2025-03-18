@@ -10,7 +10,7 @@ import java.util.List;
 public interface ColorService {
     public ColorResponse getById(int id);
     public List<ColorResponse> getAll();
-    public ColorResponse create(ColorRequest request);
+    public ColorResponse create(ColorRequest request) throws Exception;
     public ColorResponse update(int id, ColorRequest request);
     public ColorResponse delete (int id);
 

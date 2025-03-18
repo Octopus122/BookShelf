@@ -42,7 +42,7 @@ public class ColorServiceImpl implements ColorService {
     }
 
     @Override
-    public ColorResponse create(ColorRequest request) {
+    public ColorResponse create(ColorRequest request) throws Exception {
         var entity = mapper.createRequestToEntity(request);
         return mapper.entityToResponse(dao.save(entity));
     }

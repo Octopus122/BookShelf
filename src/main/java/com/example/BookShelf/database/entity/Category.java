@@ -9,15 +9,15 @@ import java.util.List;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    public int id;
 
     @Column(name = "name", nullable = false)
-    private String name;
+    public String name;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "color_id", nullable = false)
-    private Color color;
+    public Color color;
 
     @OneToMany
-    private List<Book> books;
+    public List<Book> books;
 }

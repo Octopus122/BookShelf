@@ -10,10 +10,10 @@ public class Color {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public int id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false, unique = true)
     public String name;
 
-    @Column(name = "hex_code", nullable = false)
+    @Column(name = "hex_code", nullable = false, unique = true)
     public String hexCode;
 
     //сеттеры

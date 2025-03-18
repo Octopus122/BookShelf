@@ -23,9 +23,9 @@ public class ColorMapper {
         entity.hexCode = codeMapper.mapHexCode(request.getHexCode());
         return entity;
     }
-    public Color updateRequestToEntity(int id, ColorRequest request) throws Exception {
-        var entity = createRequestToEntity(request);
-        entity.id = id;
+    public Color updateRequestToEntity(Color entity, ColorRequest request) throws Exception {
+        entity.name = request.getName();
+        entity.hexCode = codeMapper.mapHexCode(request.getHexCode());
         return entity;
     }
     public ColorResponse entityToResponse(Color entity)

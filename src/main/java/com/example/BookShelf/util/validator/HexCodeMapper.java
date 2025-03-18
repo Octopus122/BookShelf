@@ -1,5 +1,6 @@
 package com.example.BookShelf.util.validator;
 
+import com.example.BookShelf.exception.types.WrongHEXCode;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
@@ -20,12 +21,12 @@ public class HexCodeMapper {
         }
     }
 
-    public String mapHexCode(String hexCode) throws Exception {
+    public String mapHexCode(String hexCode) throws WrongHEXCode {
         hexCode = hexCode.toUpperCase();
-        if (hexCode.length() != 7) throw new Exception("Wrong Code! Inappropriate length");
+        if (hexCode.length() != 7) throw new WrongHEXCode("Inappropriate length");
         for (char c: hexCode.substring(1).toCharArray())
         {
-            if (!allowedChars.contains(c)) throw new Exception(String.format("Wrong Code! Inappropriate letter: %c", c));
+            if (!allowedChars.contains(c)) throw new WrongHEXCode(String.format("Inappropriate letter: %c", c));
         }
         return hexCode;
     }

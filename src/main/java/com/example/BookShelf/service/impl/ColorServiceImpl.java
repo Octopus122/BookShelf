@@ -2,6 +2,7 @@ package com.example.BookShelf.service.impl;
 
 import com.example.BookShelf.database.entity.Color;
 import com.example.BookShelf.database.reposotory.ColorDao;
+import com.example.BookShelf.exception.types.CantFindElementById;
 import com.example.BookShelf.model.request.ColorRequest;
 import com.example.BookShelf.model.response.ColorResponse;
 import com.example.BookShelf.service.ColorService;
@@ -9,6 +10,7 @@ import com.example.BookShelf.util.mapper.ColorMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.StreamSupport;
 
@@ -45,15 +47,21 @@ public class ColorServiceImpl implements ColorService {
     public ColorResponse create(ColorRequest request) throws Exception {
         var entity = mapper.createRequestToEntity(request);
         return mapper.entityToResponse(dao.save(entity));
+
     }
 
     @Override
-    public ColorResponse update(int id, ColorRequest request) {
-        return null;
+    public ColorResponse update(int id, ColorRequest request) throws Exception {
+            var entity = dao.findById(id).orElseThrow(() -> new CantFindElementById("color"));
+            entity = mapper.updateRequestToEntity(entity, request);
+            return mapper.entityToResponse(dao.save(entity));
     }
 
     @Override
-    public ColorResponse delete(int id) {
-        return null;
+    public String delete(int id) {
+        var entity = dao.findById(id).orElseThrow(() -> new CantFindElementById("color"));
+        dao.delete(entity);
+        return "Color is successfully deleted";
+
     }
 }

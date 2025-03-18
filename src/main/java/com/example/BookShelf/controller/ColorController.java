@@ -34,4 +34,13 @@ public class ColorController {
     public ColorResponse create(@RequestBody ColorRequest request) throws Exception {
         return service.create(request);
     }
+    @PutMapping("/update/{id}")
+    public ColorResponse update(@PathVariable int id, @RequestBody ColorRequest request) throws Exception {
+        return service.update(id, request);
+    }
+    @DeleteMapping("/delete/{id}")
+    public String delete(@PathVariable int id)
+    {
+        return service.delete(id);
+    }
 }

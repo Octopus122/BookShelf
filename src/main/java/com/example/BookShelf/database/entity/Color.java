@@ -8,11 +8,37 @@ import jakarta.persistence.*;
 public class Color {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    public int id;
 
     @Column(name = "name", nullable = false)
-    private String name;
+    public String name;
 
     @Column(name = "hex_code", nullable = false)
-    private String hexCode;
+    public String hexCode;
+
+    //сеттеры
+//    public void setId(int id)
+//    {
+//        this.id = id;
+//    }
+//    public void setName(String name)
+//    {
+//        this.name = name;
+//    }
+//    public void setId(String hexCode)
+//    {
+//        this.hexCode = hexCode;
+//    }
+//
+//    public int getId() {
+//        return id;
+//    }
+//    public String getName()
+//    {
+//        return name;
+//    }
+//    public String getId(String hexCode)
+//    {
+//        return hexCode;
+//    }
 }

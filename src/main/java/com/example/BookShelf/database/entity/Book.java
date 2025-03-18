@@ -22,7 +22,7 @@ public class Book {
     private Category category;
 
     @Column(name = "rate")
-    private float rate;
+    private int rate;
 
     @Column(name = "opinion")
     private String opinion;

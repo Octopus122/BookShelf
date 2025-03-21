@@ -18,6 +18,6 @@ public class Category {
     @JoinColumn(name = "color_id", nullable = false)
     public Color color;
 
-    @OneToMany
+    @OneToMany(mappedBy = "category")
     public List<Book> books;
 }

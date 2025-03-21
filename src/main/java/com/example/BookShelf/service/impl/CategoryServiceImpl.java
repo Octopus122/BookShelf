@@ -51,9 +51,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryResponse create(CategoryRequest request) {
         var color = colorDao.findById(request.getColorId()).orElseThrow(()-> new CantFindElementById("color"));
-        var entity = new Category();
-        entity.name = request.getName();
-        entity.color = color;
+        var entity = mapper.createRequestToEntity(request, color);
         return mapper.entityToResponse(dao.save(entity));
     }
 
@@ -61,8 +59,7 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryResponse update(int id, CategoryRequest request) {
         var color = colorDao.findById(request.getColorId()).orElseThrow(()-> new CantFindElementById("color"));
         var entity = dao.findById(id).orElseThrow(()-> new CantFindElementById("category"));
-        entity.name = request.getName();
-        entity.color = color;
+        entity = mapper.updateRequestToEntity(entity, request, color);
         return mapper.entityToResponse(dao.save(entity));
     }
 

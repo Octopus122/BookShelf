@@ -9,24 +9,24 @@ import java.util.List;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    public int id;
 
     @Column(name = "author")
-    private String author;
+    public String author;
 
     @Column(name = "name", nullable = false)
-    private String name;
+    public String name;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
+    public Category category;
 
     @Column(name = "rate")
-    private int rate;
+    public int rate;
 
     @Column(name = "opinion")
-    private String opinion;
+    public String opinion;
 
     @OneToMany
-    private List<Cite> cites;
+    public List<Cite> cites;
 }

@@ -20,5 +20,7 @@ spring:
       password: ${SECURITY_PASSWORD}
 
 server:
+  servlet:
+    context-path: /api/v1/bookshelf
   port: ${API_PORT}
 

@@ -7,12 +7,12 @@ import jakarta.persistence.*;
 public class Cite {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    public int id;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "book_id", nullable = false)
-    private Book book;
+    public Book book;
 
     @Column(name = "text", nullable = false)
-    private String text;
+    public String text;
 }

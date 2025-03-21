@@ -27,6 +27,6 @@ public class Book {
     @Column(name = "opinion")
     public String opinion;
 
-    @OneToMany
+    @OneToMany(mappedBy = "book")
     public List<Cite> cites;
 }
